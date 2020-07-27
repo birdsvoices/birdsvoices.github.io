@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+    <ShortName>Birds Voices</ShortName>
+    <Description>Birds Voices is an open source project about birds. It's a website where you can find recordings of different birds' songs.</Description>
+    <InputEncoding>UTF-8</InputEncoding>
+    <Image type="image/x-icon"></Image>
+    <Image type="image/png"></Image>
+    <Url type="text/html" template=""></Url>
+    <Url type="application/x-suggestions+json" template="./assets/searchplugin/suggest.php?q={searchParams}" method="get"><Url>
+    <Url type="application/opensearchdescription+xml" template="./assets/searchplugin/search.xml" rel="self"></Url>
+</OpenSearchDescription>
