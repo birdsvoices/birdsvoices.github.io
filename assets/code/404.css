@@ -1,7 +1,10 @@
 @charset "UTF-8";
 @supports (display: flex) {
     #content {
-        text-align: center;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
         display: flex;
         flex: none;
         flex-direction: column;
@@ -10,4 +13,33 @@
         align-items: center;
         align-content: center;
     }
+}
+@supports not (display: flex) {
+    #content {
+        margin: auto;
+    }
+}
+#content {
+    margin-top: 3rem;
+    text-align: center;
+}
+#content::selection {
+    background-color: #5898ec85;
+    border-radius: .5px;
+}
+a {
+    text-decoration: none;
+    font-size: 14px;
+}
+a:link {
+    color: #00008b;
+}
+a:visited {
+    color: #6e0090;
+}
+a:active {
+    color: #ff4322;
+}
+* {
+    font-family: Arial, Helvetica, sans-serif;
 }
