@@ -4,6 +4,6 @@
 ### Creators
 Our team consists of two people.
 
-[smirnyi](https://instagram.com/smirnyi "smirnyi") - editing sound, providing the information about birds
+[smirnyi](https://instagram.com/smirnyi "smirnyi") - recording and editing sound, providing the information about birds
 
 [spoon.13](https://instagram.com/spoon.13 "spoon.13") - programming the website
