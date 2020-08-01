@@ -1,0 +1,9 @@
+{
+    "name" : "Birds Voices",
+    "short_name" : "BV",
+    "icons" : [],
+    "start_url" : "/",
+    "display" : "standalone",
+    "background_color" : "#37a697",
+    "theme\-color" : "#8ffff0"
+}
