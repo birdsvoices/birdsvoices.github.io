@@ -1,5 +1,9 @@
 @charset "UTF-8";
-@supports (display: flex) {
+@supports (display: flex) or
+          (display: -webkit-box) or
+          (display: -moz-box) or
+          (display: -ms-flexbox) or
+          (display: -webkit-flex) {
     #content {
         display: -webkit-box;
         display: -moz-box;
@@ -23,7 +27,8 @@
     margin-top: 3rem;
     text-align: center;
 }
-#content::selection {
+#content::selection,
+#content::-moz-selection {
     background-color: #5898ec85;
     border-radius: .5px;
 }
