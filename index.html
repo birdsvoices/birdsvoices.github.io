@@ -14,6 +14,18 @@
         <meta name="robots" content="index,follow">
         <meta name="robots" content="max-snippet:100">
         <meta name="viewport" content="width=device-width, user-scalable=yes, minimum-scale=1, initial-scale=1.0">
+        <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+        <meta name="MSSmartTagsPreventParsing" content="true">
+        <meta name="msapplication-allowDomainApiCalls" content="true">
+        <meta name="msapplication-allowDomainMetaTags" content="true">
+        <meta name="msapplication-TileColor" content="#00eee2">
+        <meta name="msapplication-starturl" content="/">
+        <meta name="msapplication-tooltip" content="Birds Voices">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="msapplication-task" content="name=Главная страница;action-uri=/;icon-uri=assets/media/icons/favicon.ico">
+        <meta name="msapplication-window" content="width=1024;height=768">
+        <meta name="msapplication-navbutton-color" content="#13b1a9">
+        <meta name="msapplication-config" content="">
         <meta itemprop="name" content="Птички!">
         <meta itemprop="description" content="Birds Voices - проект про птиц с открытым исходным кодом. Это сайт, на котором вы можете найти записи голосов различных птиц.">
         <meta http-equiv="Content-Type" content="text/html">
@@ -32,10 +44,10 @@
         <link rel="manifest" href="assets/manifest.webmanifest" type="application/manifest+json">
         <link rel="canonical" href="https://birdsvoices.github.io/">
         <link rel="help" href="mailto:zloytemgan@yandex.ru">
-        <script type="module" src="assets/modules/env.js"></script>
-        <script type="module" src="assets/modules/player.js"></script>
-        <script nomodule src="assets/modules/env.js"></script>
-        <script nomodule src="assets/modules/player.js"></script>
+        <script type="module" src="assets/modules/env.js"> // Environment module </script>
+        <script type="module" src="assets/modules/player.js"> // Player module </script>
+        <script nomodule src="assets/modules/env.js"> // Environment module (fallback) </script>
+        <script nomodule src="assets/modules/player.js"> // Player module (fallback) </script>
         <base href="https://birdsvoices.github.io/" target="_blank">
     </head>
     <body lang="ru" dir="ltr" role="main" translate="no">
