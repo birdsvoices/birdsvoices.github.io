@@ -42,35 +42,76 @@ export class Environment {
         } else {
             this.writeToObj(os, undefined)
         }
+
         if (!EnvInfo.os) {
             console.log(`[${this.gettime()}] Failed to identify the operating system`)
         } else {
             console.log(`[${this.gettime()}] OS identified succesfully: ${EnvInfo.os}`)
         }
+
         if (navigator.userAgent || navigator.appName) {
             this.writeToObj(browser.string, navigator.userAgent)
         } else {
             this.writeToObj(browser.string, undefined)
         }
+
+        if (!EnvInfo.browser.string) {
+            console.log(`[${this.gettime()}] Failed to identify user agent header`)
+        } else {
+            console.log(`[${this.gettime()}] User agent identified succesfully: ${EnvInfo.browser.string}`)
+        }
+
         if ("WebAssembly" in window) {
             this.writeToObj(browser.supports.wasm, true)
         } else {
             this.writeToObj(browser.supports.wasm, false)
         }
+
+        if (!EnvInfo.browser.supports.wasm) {
+            console.warn(`[${this.gettime()}] This browser does not support WebAssembly.`)
+        } else {
+            console.log(`[${this.gettime()}] This browser supports WebAssembly.`)
+        }
+
         if (!!navigator.javaEnabled) {
             this.writeToObj(browser.supports.java, true)
         } else {
             this.writeToObj(browser.supports.java, false)
         }
+
+        if (!EnvInfo.browser.supports.java) {
+            console.warn(`[${this.gettime()}] This browser does not support Java.`)
+        } else {
+            console.log(`[${this.gettime()}] This browser supports Java.`)
+        }
+
         if (window.Promise) {
             this.writeToObj(browser.supports.promise, true)
         } else {
             this.writeToObj(browser.supports.promise, false)
         }
+
+        if (!EnvInfo.browser.supports.promise) {
+            console.warn(`[${this.gettime()}] This browser does not support Promise API`)
+        } else {
+            console.log(`[${this.gettime()}] This browser supports Promise API`)
+        }
+
         if ((window.CSS && window.CSS.supports) || window.supportsCSS) {
             this.writeToObj(browser.supports.CSSsupports, true)
         } else {
             this.writeToObj(browser.supports.CSSsupports, false)
+        }
+
+        if (!EnvInfo.browser.supports.CSSsupports) {
+            console.warn(`[${this.gettime()}] This browser does not support CSS.support method and @supports at-rule`)
+        } else {
+            console.log(`[${this.gettime()}] This browser supports CSS.supports method and @supports at-rule`)
+        }
+
+
+        if (log === true) {
+            console.log(`All information about the environment collected. Now the pbject looks like this:`); this.print()
         }
     }
     /**
