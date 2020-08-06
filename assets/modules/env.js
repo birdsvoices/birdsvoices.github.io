@@ -35,11 +35,11 @@ export class Environment {
             this.writeToObj(os, "Android")
         } else if (/iOS|iPhone OS/i.test(navigator.platform || navigator.userAgent)) {
             this.writeToObj(os, "iOS")
-        } else if (/Xbox( OS)?/i) {
+        } else if (/Xbox( OS|*)?/i.test(navigator.platform)) {
             this.writeToObj(os, "Xbox OS")
-        } else if (/Orbis( OS)?/i) {
+        } else if (/Orbis( OS|*)?/i.test(navigator.platform)) {
             this.writeToObj(os, "Orbis")
-        } else {
+        } else if () {} else {
             this.writeToObj(os, undefined)
         }
 
@@ -50,63 +50,43 @@ export class Environment {
         }
 
         if (navigator.userAgent || navigator.appName) {
-            this.writeToObj(browser.string, navigator.userAgent)
+            this.writeToObj(browser.string, navigator.userAgent);
+            console.log(`[${this.gettime()}] User agent identified succesfully: ${EnvInfo.browser.string}`);
         } else {
-            this.writeToObj(browser.string, undefined)
-        }
-
-        if (!EnvInfo.browser.string) {
-            console.log(`[${this.gettime()}] Failed to identify user agent header`)
-        } else {
-            console.log(`[${this.gettime()}] User agent identified succesfully: ${EnvInfo.browser.string}`)
+            this.writeToObj(browser.string, undefined);
+            console.warn(`[${this.gettime()}] Failed to identify user agent header`);
         }
 
         if ("WebAssembly" in window) {
             this.writeToObj(browser.supports.wasm, true)
-        } else {
-            this.writeToObj(browser.supports.wasm, false)
-        }
-
-        if (!EnvInfo.browser.supports.wasm) {
-            console.warn(`[${this.gettime()}] This browser does not support WebAssembly.`)
-        } else {
             console.log(`[${this.gettime()}] This browser supports WebAssembly.`)
+        } else {
+            this.writeToObj(browser.supports.wasm, false);
+            console.warn(`[${this.gettime()}] This browser does not support WebAssembly.`);
         }
 
         if (!!navigator.javaEnabled) {
             this.writeToObj(browser.supports.java, true)
+            console.log(`[${this.gettime()}] This browser supports Java.`)
         } else {
             this.writeToObj(browser.supports.java, false)
-        }
-
-        if (!EnvInfo.browser.supports.java) {
             console.warn(`[${this.gettime()}] This browser does not support Java.`)
-        } else {
-            console.log(`[${this.gettime()}] This browser supports Java.`)
         }
 
         if (window.Promise) {
             this.writeToObj(browser.supports.promise, true)
+            console.log(`[${this.gettime()}] This browser supports Promise API`)
         } else {
             this.writeToObj(browser.supports.promise, false)
-        }
-
-        if (!EnvInfo.browser.supports.promise) {
             console.warn(`[${this.gettime()}] This browser does not support Promise API`)
-        } else {
-            console.log(`[${this.gettime()}] This browser supports Promise API`)
         }
 
         if ((window.CSS && window.CSS.supports) || window.supportsCSS) {
             this.writeToObj(browser.supports.CSSsupports, true)
+            console.log(`[${this.gettime()}] This browser supports CSS.supports method and @supports at-rule`)
         } else {
             this.writeToObj(browser.supports.CSSsupports, false)
-        }
-
-        if (!EnvInfo.browser.supports.CSSsupports) {
             console.warn(`[${this.gettime()}] This browser does not support CSS.support method and @supports at-rule`)
-        } else {
-            console.log(`[${this.gettime()}] This browser supports CSS.supports method and @supports at-rule`)
         }
 
 
@@ -155,3 +135,28 @@ export let EnvInfo = {
         }
     }
 };
+export let UserAgentHeaders = [
+    { name: "Firefox Desktop", array: [] },
+    { name: "Firefox Mobile", array: [] },
+    { name: "Chrome Desktop", array: [
+        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.53 Safari\/525.19/,
+        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) \/AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.36 Safari\/525.19/,
+        /Mozilla\/5.0 \(Windows; U; Windows NT 6.1; en-US\) AppleWebKit\/534.10 \(KHTML, like Gecko\) Chrome\/7.0.540.0 Safari\/534.10/, // more coming soon...
+    ] },
+    { name: "Chrome Mobile", array: [] },
+    { name: "Opera Desktop", array: [] },
+    { name: "Opera Mobile", array: [] },
+    { name: "Opera Mini", array: [] },
+    { name: "Safari", array: [] },
+    { name: "Edge Desktop", array: [] },
+    { name: "Edge Mobile", array: [] },
+    { name: "Maxthon", array: [] },
+    { name: "Palemoon Desktop", array: [] },
+    { name: "Palemoon Mobile", array: [] },
+    { name: "Yandex Browser Desktop", array: [] },
+    { name: "Yandex. Browser Mobile", array: [] },
+    { name: "Android WebView", array: [] },
+    { name: "Blackberry Browser", array: [] },
+    { name: "Thunderbird", array: [] },
+    { name: "Apple Mail", array: [] },
+]
