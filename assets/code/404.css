@@ -35,6 +35,7 @@
 a {
     text-decoration: none;
     font-size: 14px;
+    background: #ffffff;
 }
 a:link {
     color: #00008b;
