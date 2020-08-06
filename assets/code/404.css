@@ -24,7 +24,7 @@
     }
 }
 #content {
-    margin-top: 3rem;
+    margin-top: 6rem;
     text-align: center;
 }
 #content::selection,
@@ -47,4 +47,10 @@ a:active {
 }
 * {
     font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background: rgb(132,255,216);
+    background: -moz-linear-gradient(90deg, rgba(132,255,216,1) 0%, rgba(189,174,251,1) 51%, rgba(0,212,255,1) 100%);
+    background: -webkit-linear-gradient(90deg, rgba(132,255,216,1) 0%, rgba(189,174,251,1) 51%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(90deg, rgba(132,255,216,1) 0%, rgba(189,174,251,1) 51%, rgba(0,212,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#84ffd8",endColorstr="#00d4ff",GradientType=1);
 }
