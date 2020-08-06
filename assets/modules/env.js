@@ -39,7 +39,7 @@ export class Environment {
             this.writeToObj(os, "Xbox OS")
         } else if (/Orbis( OS|*)?/i.test(navigator.platform)) {
             this.writeToObj(os, "Orbis")
-        } else if () {} else {
+        } else {
             this.writeToObj(os, undefined)
         }
 
@@ -135,6 +135,10 @@ export let EnvInfo = {
         }
     }
 };
+
+/**
+* @description This object contains User-Agent header for different environments
+*/
 export let UserAgentHeaders = [
     { name: "Firefox Desktop", array: [] },
     { name: "Firefox Mobile", array: [] },
