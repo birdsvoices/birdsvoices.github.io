@@ -23,6 +23,46 @@
         margin: auto;
     }
 }
+@media (inverted-colors: inverted) {
+    img,
+    svg {
+        filter: invert(1)!important;
+    }
+    * {
+        box-shadow: none!important;
+        text-shadow: none!important;
+    }
+}
+@media print {
+    html, body {
+        height: 297mm;
+        width: 210mm;
+    }
+    *,
+    *::before,
+    *::after {
+        box-shadow: none!important;
+        text-shadow: none!important;
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    a[href^="http"]::after,
+    a[href^="mailto"]::after {
+        content: " (" attr(href) ")";
+    }
+    a[href^="javascript"]::after {
+        content: "(JavaScript link)";
+    }
+    a[href^="data"]::after {
+        content: "(binary data)";
+    }
+}
+@page {
+    margin-top: 10mm;
+    margin-bottom: 10mm;
+    margin-right: 10mm;
+    margin-left: 20mm;
+}
 #content {
     margin-top: 6rem;
     text-align: center;
@@ -36,6 +76,10 @@ a {
     text-decoration: none;
     font-size: 14px;
     background: #ffffff;
+    box-shadow: 1mm 1mm 0 0 #000000;
+    -webkit-box-shadow: 1mm 1mm 0 0 #000000;
+    -moz-box-shadow: 1mm 1mm 0 0 #000000;
+    filter: progid:DXImageTransform.Microsoft.dropshadow(offX=1mm, offY=1mm, color=#000000);
 }
 a:link {
     color: #00008b;
