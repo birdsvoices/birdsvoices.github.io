@@ -73,6 +73,8 @@
     border-radius: .5px;
 }
 a {
+    padding-left: 1px;
+    padding-right: 1px;
     text-decoration: none;
     font-size: 14px;
     background: #ffffff;

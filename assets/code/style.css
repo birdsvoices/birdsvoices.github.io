@@ -1,4 +1,44 @@
 @charset "UTF-8";
+@media (inverted-colors: inverted) {
+    img,
+    svg {
+        filter: invert(1)!important;
+    }
+    * {
+        box-shadow: none!important;
+        text-shadow: none!important;
+    }
+}
+@media print {
+    html, body {
+        height: 297mm;
+        width: 210mm;
+    }
+    *,
+    *::before,
+    *::after {
+        box-shadow: none!important;
+        text-shadow: none!important;
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    a[href^="http"]::after,
+    a[href^="mailto"]::after {
+        content: " (" attr(href) ")";
+    }
+    a[href^="javascript"]::after {
+        content: "(JavaScript link)";
+    }
+    a[href^="data"]::after {
+        content: "(binary data)";
+    }
+}
+@page {
+    margin-top: 10mm;
+    margin-bottom: 10mm;
+    margin-right: 10mm;
+    margin-left: 20mm;
+}
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
