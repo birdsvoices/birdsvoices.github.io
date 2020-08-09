@@ -11,6 +11,7 @@ export class Environment {
      */
     constructor(log) {
         console.log(`[${this.gettime()}] Started collecting the information about the environment`);
+        //#region OS
         if (/Win(16|32|64|CE)?/i.test(navigator.platform)) {
             this.writeToObj(os, "Windows");
         } else if (/Mac(Intel|PPC|68K)?/i.test(navigator.platform)) {
@@ -37,11 +38,14 @@ export class Environment {
             this.writeToObj(os, "iOS")
         } else if (/Xbox( OS|*)?/i.test(navigator.platform)) {
             this.writeToObj(os, "Xbox OS")
+        } else if (/Xbox 360( OS|*)?/i.test(navigator.platform)) {
+            this.writeToObj(os, "Xbox 360 OS")
         } else if (/Orbis( OS|*)?/i.test(navigator.platform)) {
             this.writeToObj(os, "Orbis")
         } else {
             this.writeToObj(os, undefined)
         }
+        //#endregion
 
         if (!EnvInfo.os) {
             console.log(`[${this.gettime()}] Failed to identify the operating system`)
@@ -98,8 +102,9 @@ export class Environment {
      * @description This method returns current time (used in logs)
      * 
      * @returns Current time
+     * @static
      */
-    gettime() {
+    static gettime() {
         let time = new Date(); return time.toLocaleTimeString();
     }
     /**
@@ -107,13 +112,19 @@ export class Environment {
      * 
      * @param {any} property - The property where the value will be assigned
      * @param {any} value - The value which will be assigned to the specified property
+     * @static
      */
-    writeToObj(property, value) {
+    static writeToObj(property, value) {
         if (!property) return;
         if (!value)    return;
         EnvInfo[property] = value;
     }
-    print() {
+    /**
+     * @description Prints the EnvInfo object properties to the console
+     * 
+     * @static
+     */
+    static print() {
         console.log(JSON.stringify(EnvInfo, function replacer(key, value) {
             return (value === undefined) ? null : value;
         }, 4))
@@ -143,9 +154,9 @@ export let UserAgentHeaders = [
     { name: "Firefox Desktop", array: [] },
     { name: "Firefox Mobile", array: [] },
     { name: "Chrome Desktop", array: [
-        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.53 Safari\/525.19/,
-        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) \/AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.36 Safari\/525.19/,
-        /Mozilla\/5.0 \(Windows; U; Windows NT 6.1; en-US\) AppleWebKit\/534.10 \(KHTML, like Gecko\) Chrome\/7.0.540.0 Safari\/534.10/, // more coming soon...
+        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.53 Safari\/525.19/i,
+        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) \/AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.36 Safari\/525.19/i,
+        /Mozilla\/5.0 \(Windows; U; Windows NT 6.1; en-US\) AppleWebKit\/534.10 \(KHTML, like Gecko\) Chrome\/7.0.540.0 Safari\/534.10/i, // more coming soon...
     ] },
     { name: "Chrome Mobile", array: [] },
     { name: "Opera Desktop", array: [] },
