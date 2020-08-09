@@ -1,15 +1,21 @@
 "use strict";
+import * as mod from './main.mjs';
 /**
  * @description This class contains methods that can help to collect information about browser (name, version, etc.)
+ * 
+ * @version 2.0.0
+ * @class
  */
-export class Environment {
+export class Environment extends mod.CreateComponent("Environment", "This class contains methods that can help to collect information about browser.") {
     /**
      * @description Main constructor of the class
      * 
      * @constructor
      * @param {Boolean} log - indicates if the collected information needs to be printed to the console. 
+     * @version 2.0.0
      */
     constructor(log) {
+        super();
         console.log(`[${this.gettime()}] Started collecting the information about the environment`);
         //#region OS
         if (/Win(16|32|64|CE)?/i.test(navigator.platform)) {
@@ -103,6 +109,8 @@ export class Environment {
      * 
      * @returns Current time
      * @static
+     * @version 2.0.0
+     * @method
      */
     static gettime() {
         let time = new Date(); return time.toLocaleTimeString();
@@ -113,6 +121,8 @@ export class Environment {
      * @param {any} property - The property where the value will be assigned
      * @param {any} value - The value which will be assigned to the specified property
      * @static
+     * @version 2.0.0
+     * @method
      */
     static writeToObj(property, value) {
         if (!property) return;
@@ -123,6 +133,8 @@ export class Environment {
      * @description Prints the EnvInfo object properties to the console
      * 
      * @static
+     * @version 2.0.0
+     * @method
      */
     static print() {
         console.log(JSON.stringify(EnvInfo, function replacer(key, value) {
@@ -132,6 +144,8 @@ export class Environment {
 }
 /**
  * @description This object contains information about the environment (browser)
+ * 
+ * @version 12.0.0
  */
 export let EnvInfo = {
     os: null,
@@ -149,6 +163,8 @@ export let EnvInfo = {
 
 /**
 * @description This object contains User-Agent header for different environments
+* 
+* @version 2.0.0
 */
 export let UserAgentHeaders = [
     { name: "Firefox Desktop", array: [] },
