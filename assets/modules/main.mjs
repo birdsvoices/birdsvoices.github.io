@@ -2,7 +2,6 @@
  * @summary There are functions to manage components
  * @description In this module there are functions to create and manage different components. GitHub [link]{@link https://github.com/birdsvoices/birdsvoices.github.io/blob/master/assets/modules/main.mjs}
  * 
- * @version 2.0.0
  * @module main 
  */
 "use strict";
@@ -15,14 +14,16 @@
  * @param {String} name The name of the class
  * @param {String} summary A short description of the class
  * @param {Boolean} virtuality Indicates whether the component is displayed on the page
- * 
- * @version 2.0.0
  */
 export function CreateComponent(name, summary, virtuality, compObj) {
     if ((!name) || (!summary) || (!virtuality)) return;
     if (typeof virtuality != "boolean") return;
     if (!virtuality && !compObj) return;
     if (!virtuality && typeof compObj != 'object') return; // compObj propert must be created with "new CustomElemObject(...)"
+    /**
+     * The component to be returned
+     * @class
+     */
     let Component = class {
         constructor() {
             console.info(`A new class has been created: ${this.name}`)
@@ -43,12 +44,14 @@ export function CreateComponent(name, summary, virtuality, compObj) {
                 super()
             }
             connectedCallback() {
-                compObj.on.connect()
+                this.attachShadow({mode: "open"});
+                compObj.on.connect();
             }
             disconnectedCallback() {
-                compObj.on.disconnect()
+                compObj.on.disconnect();
             }
         }
+        customElements.define(compObj.name, Component.elem)
     }
     return Component;
 }
@@ -57,7 +60,6 @@ export function CreateComponent(name, summary, virtuality, compObj) {
  * 
  * @function
  * @param {String} classname The class to get properties from
- * @version 2.0.0
  */
 export function GetClassInfo(classname) {
     return console.log(JSON.stringify({
@@ -74,7 +76,6 @@ export function GetClassInfo(classname) {
  * 
  * @function
  * @param {Object} obj Defines the object
- * @version 2.0.0
  */
 export function bindAll(obj) {
     (Object.entries(obj)).forEach((item, index) => {
@@ -90,11 +91,10 @@ export function bindAll(obj) {
  * @param {String} name The name of the custom element
  * @param {Function} disconnectHandler This function is called when the element is deleted
  * @param {Function} connectHandler This function is called then the element is created
- * @version 2.0.0
  */
 export function CustomElemObject(name, disconnectHandler, connectHandler) {
     if (typeof (disconnectHandler && connectHandler) != 'function') return;
-    if (!/\p{Ll}+-\p{Ll}/u.test(name)) return;
+    if (!(/^\p{Ll}+-\p{Ll}+$/u.test(name))) return;
     this.name = name;
     this.on.connect = connectHandler;
     this.on.disconnect = disconnectHandler;

@@ -1,9 +1,8 @@
 "use strict";
-import * as mod from './main.mjs';
+import * as mod from '../modules/main.mjs';
 /**
  * @description This class contains methods that can help to collect information about browser (name, version, etc.)
  * 
- * @version 2.0.0
  * @class
  */
 export class Environment extends mod.CreateComponent("Environment", "This class contains methods that can help to collect information about browser.") {
@@ -12,7 +11,6 @@ export class Environment extends mod.CreateComponent("Environment", "This class 
      * 
      * @constructor
      * @param {Boolean} log - indicates if the collected information needs to be printed to the console. 
-     * @version 2.0.0
      */
     constructor(log) {
         super();
@@ -121,7 +119,6 @@ export class Environment extends mod.CreateComponent("Environment", "This class 
      * @param {any} property - The property where the value will be assigned
      * @param {any} value - The value which will be assigned to the specified property
      * @static
-     * @version 2.0.0
      * @method
      */
     static writeToObj(property, value) {
@@ -133,7 +130,6 @@ export class Environment extends mod.CreateComponent("Environment", "This class 
      * @description Prints the EnvInfo object properties to the console
      * 
      * @static
-     * @version 2.0.0
      * @method
      */
     static print() {
@@ -144,8 +140,6 @@ export class Environment extends mod.CreateComponent("Environment", "This class 
 }
 /**
  * @description This object contains information about the environment (browser)
- * 
- * @version 12.0.0
  */
 export let EnvInfo = {
     os: null,
@@ -163,8 +157,6 @@ export let EnvInfo = {
 
 /**
 * @description This object contains User-Agent header for different environments
-* 
-* @version 2.0.0
 */
 export let UserAgentHeaders = [
     { name: "Firefox Desktop", array: [] },
@@ -181,6 +173,7 @@ export let UserAgentHeaders = [
     { name: "Safari", array: [] },
     { name: "Edge Desktop", array: [] },
     { name: "Edge Mobile", array: [] },
+    { name: "Internet Explorer Desktop", array: [] },
     { name: "Maxthon", array: [] },
     { name: "Palemoon Desktop", array: [] },
     { name: "Palemoon Mobile", array: [] },
