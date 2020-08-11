@@ -1,6 +1,68 @@
 "use strict";
 import * as mod from '../modules/main.mjs';
 /**
+ * @description This object contains information about the environment (browser)
+ */
+export let EnvInfo = {
+    os: null,
+    browser: {
+        string: null,
+        name: null,
+        supports: {
+            java: null,
+            wasm: null,
+            promise: null,
+            CSSsupports: null,
+        }
+    }
+};
+export let OS = [
+    { name: "windows", regexp: /Win(16|32|64|CE)?/i },
+    { name: "macOS", regexp: /Mac(Intel|PPC|68K)?/i },
+    { name: "WebTV OS", regexp: /WebTV( OS)?/i },
+    { name: "SunOS", regexp: /SunOS/i },
+    { name: "HP-UX", regexp: /HP-UX/i },
+    { name: "Linux", regexp: /Linux( i686| i386| armv7l)?/i },
+    { name: "FreeBSD", regexp: /FreeBSD( i686| i386|*)?/i },
+    { name: "NetBSD", regexp: /NetBSD( i686| i386|*)?/i },
+    { name: "OpenBSD", regexp: /OpenBSD( i686| i386|*)?/i },
+    { name: "ChromeOS", regexp: /ChromeOS/i },
+    { name: "Android", regexp: /Android/i },
+    { name: "iOS", regexp: /iOS|iPhone OS/i },
+    { name: "Xbox OS", regexp: /Xbox( OS)?/i },
+    { name: "Xbox 360 OS", regexp: /Xbox 360( OS)?/i },
+    { name: "Orbis", regexp: /Orbis( OS)?/i },
+]
+/**
+* @description This object contains User-Agent header for different environments
+*/
+export let UserAgentHeaders = [
+    { name: "Firefox Desktop", array: [] },
+    { name: "Firefox Mobile", array: [] },
+    { name: "Chrome Desktop", array: [
+        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.53 Safari\/525.19/i,
+        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) \/AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.36 Safari\/525.19/i,
+        /Mozilla\/5.0 \(Windows; U; Windows NT 6.1; en-US\) AppleWebKit\/534.10 \(KHTML, like Gecko\) Chrome\/7.0.540.0 Safari\/534.10/i, // more coming soon...
+    ] },
+    { name: "Chrome Mobile", array: [] },
+    { name: "Opera Desktop", array: [] },
+    { name: "Opera Mobile", array: [] },
+    { name: "Opera Mini", array: [] },
+    { name: "Safari", array: [] },
+    { name: "Edge Desktop", array: [] },
+    { name: "Edge Mobile", array: [] },
+    { name: "Internet Explorer Desktop", array: [] },
+    { name: "Maxthon", array: [] },
+    { name: "Palemoon Desktop", array: [] },
+    { name: "Palemoon Mobile", array: [] },
+    { name: "Yandex Browser Desktop", array: [] },
+    { name: "Yandex. Browser Mobile", array: [] },
+    { name: "Android WebView", array: [] },
+    { name: "Blackberry Browser", array: [] },
+    { name: "Thunderbird", array: [] },
+    { name: "Apple Mail", array: [] },
+]
+/**
  * @description This class contains methods that can help to collect information about browser (name, version, etc.)
  * 
  * @class
@@ -15,41 +77,11 @@ export class Environment extends mod.CreateComponent("Environment", "This class 
     constructor(log) {
         super();
         console.log(`[${this.gettime()}] Started collecting the information about the environment`);
-        //#region OS
-        if (/Win(16|32|64|CE)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "Windows");
-        } else if (/Mac(Intel|PPC|68K)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "macOS")
-        } else if (/WebTV( OS)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "WebOS")
-        } else if (/SunOS/i.test(navigator.platform)) {
-            this.writeToObj(os, "SunOS")
-        } else if (/HP-UX/i.test(navigator.platform)) {
-            this.writeToObj(os, "HP-UX")
-        } else if (/Linux( i686| i386| armv7l)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "Linux")
-        } else if (/FreeBSD( i686| i386|*)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "FreeBSD")
-        } else if (/NetBSD( i686| i386|*)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "NetBSD")
-        } else if (/OpenBSD( i686| i386|*)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "OpenBSD")
-        } else if (/ChromeOS/i.test(navigator.platform)) {
-            this.writeToObj(os, "ChromeOS")
-        } else if (/Android/i.test(navigator.platform || navigator.userAgent)) {
-            this.writeToObj(os, "Android")
-        } else if (/iOS|iPhone OS/i.test(navigator.platform || navigator.userAgent)) {
-            this.writeToObj(os, "iOS")
-        } else if (/Xbox( OS|*)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "Xbox OS")
-        } else if (/Xbox 360( OS|*)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "Xbox 360 OS")
-        } else if (/Orbis( OS|*)?/i.test(navigator.platform)) {
-            this.writeToObj(os, "Orbis")
-        } else {
-            this.writeToObj(os, undefined)
+        for (let i = 0; i < OS.length; i++) {
+            if (OS[i].regexp.test(navigator.platform || navigator.userAgent)) {
+                EnvInfo.os = OS[i].name;
+            } else continue
         }
-        //#endregion
 
         if (!EnvInfo.os) {
             console.log(`[${this.gettime()}] Failed to identify the operating system`)
@@ -138,49 +170,3 @@ export class Environment extends mod.CreateComponent("Environment", "This class 
         }, 4))
     }
 }
-/**
- * @description This object contains information about the environment (browser)
- */
-export let EnvInfo = {
-    os: null,
-    browser: {
-        string: null,
-        name: null,
-        supports: {
-            java: null,
-            wasm: null,
-            promise: null,
-            CSSsupports: null,
-        }
-    }
-};
-
-/**
-* @description This object contains User-Agent header for different environments
-*/
-export let UserAgentHeaders = [
-    { name: "Firefox Desktop", array: [] },
-    { name: "Firefox Mobile", array: [] },
-    { name: "Chrome Desktop", array: [
-        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.53 Safari\/525.19/i,
-        /Mozilla\/5.0 \(Windows; U; Windows NT 5.1; en-US\) \/AppleWebKit\/525.19 \(KHTML, like Gecko\) Chrome\/1.0.154.36 Safari\/525.19/i,
-        /Mozilla\/5.0 \(Windows; U; Windows NT 6.1; en-US\) AppleWebKit\/534.10 \(KHTML, like Gecko\) Chrome\/7.0.540.0 Safari\/534.10/i, // more coming soon...
-    ] },
-    { name: "Chrome Mobile", array: [] },
-    { name: "Opera Desktop", array: [] },
-    { name: "Opera Mobile", array: [] },
-    { name: "Opera Mini", array: [] },
-    { name: "Safari", array: [] },
-    { name: "Edge Desktop", array: [] },
-    { name: "Edge Mobile", array: [] },
-    { name: "Internet Explorer Desktop", array: [] },
-    { name: "Maxthon", array: [] },
-    { name: "Palemoon Desktop", array: [] },
-    { name: "Palemoon Mobile", array: [] },
-    { name: "Yandex Browser Desktop", array: [] },
-    { name: "Yandex. Browser Mobile", array: [] },
-    { name: "Android WebView", array: [] },
-    { name: "Blackberry Browser", array: [] },
-    { name: "Thunderbird", array: [] },
-    { name: "Apple Mail", array: [] },
-]
