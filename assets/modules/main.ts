@@ -6,6 +6,21 @@
  */
 "use strict";
 
+interface IComponent {
+    title: String;
+    summary: String;
+    isVirtual: Boolean;
+    elem?: ICustomObject;
+}
+interface ICustomObject {
+    name: String;
+    on: ICustomObjectHandlers;
+}
+interface ICustomObjectHandlers {
+    connect: Function;
+    disconnect?: Function;
+}
+
 /**
  * @summary Component creator
  * @description This function is used to create a component.
@@ -15,43 +30,34 @@
  * @param {String} summary A short description of the class
  * @param {Boolean} virtuality Indicates whether the component is displayed on the page
  */
-export function CreateComponent(name, summary, virtuality, compObj) {
-    if ((!name) || (!summary) || (!virtuality)) return;
-    if (typeof virtuality != "boolean") return;
-    if (!virtuality && !compObj) return;
-    if (!virtuality && typeof compObj != 'object') return; // compObj propert must be created with "new CustomElemObject(...)"
+export function CreateComponent(name: String, summary: String, virtuality: Boolean, compObj: ICustomObject) {
     /**
-     * The component to be returned
+     * The component to be returned.
      * @class
      */
-    let Component = class {
+    let Component = class Component implements IComponent {
         constructor() {
-            console.info(`A new class has been created: ${this.name}`)
-        }
-        static get name() {
-            return name;
-        }
-        static get summary() {
-            return summary;
-        }
-        static get virtuality() {
-            return virtuality;
-        }
-    }
-    if (Component.isVirtual === false) {
-        Component.elem = class Elem extends HTMLElement {
-            constructor() {
-                super()
-            }
-            connectedCallback() {
-                this.attachShadow({mode: "open"});
-                compObj.on.connect();
-            }
-            disconnectedCallback() {
-                compObj.on.disconnect();
+            console.info(`A new class has been created: ${this.title}`)
+            if (this.isVirtual === false) {
+                this.elem = class Elem extends HTMLElement {
+                    constructor() {
+                        super()
+                    }
+                    connectedCallback() {
+                        this.attachShadow({mode: "open"});
+                        compObj.on.connect();
+                    }
+                    disconnectedCallback() {
+                        compObj.on.disconnect();
+                    }
+                }
+                customElements.define(compObj.name.toString(), this.elem)
             }
         }
-        customElements.define(compObj.name, Component.elem)
+        title: String = name;
+        summary: String = summary;
+        isVirtual: Boolean = virtuality;
+        elem: any;
     }
     return Component;
 }
@@ -77,25 +83,3 @@ export function GetClassInfo(classname) {
  * @function
  * @param {Object} obj Defines the object
  */
-export function bindAll(obj) {
-    (Object.entries(obj)).forEach((item, index) => {
-        if (typeof item[1] == 'function') {
-            obj[index] = obj[index].bind(obj);
-        }
-    });
-}
-/**
- * @summary This function is invoked to create custom elements for components
- * 
- * @constructor
- * @param {String} name The name of the custom element
- * @param {Function} disconnectHandler This function is called when the element is deleted
- * @param {Function} connectHandler This function is called then the element is created
- */
-export function CustomElemObject(name, disconnectHandler, connectHandler) {
-    if (typeof (disconnectHandler && connectHandler) != 'function') return;
-    if (!(/^\p{Ll}+-\p{Ll}+$/u.test(name))) return;
-    this.name = name;
-    this.on.connect = connectHandler;
-    this.on.disconnect = disconnectHandler;
-}
