@@ -21,4 +21,14 @@
         "url": "https://github.com/birdsvoices/birdsvoices.github.io/issues"
     },
     "homepage": "https://github.com/birdsvoices/birdsvoices.github.io#readme",
+    "dependencies": {
+        "typescript": "^3.9.7"
+    },
+    "devDependencies": {
+        "babel-cli": "6.26.0",
+        "babel-preset-env": "1.7.0",
+        "babel-preset-react": "6.24.1",
+        "babel-preset-stage-0": "6.24.1",
+        "@babel/plugin-transform-typescript": "7.11.0"
+    }
 }
