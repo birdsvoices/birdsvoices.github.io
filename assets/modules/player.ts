@@ -1,5 +1,5 @@
 "use strict";
-import * as mod from "../modules/main.mjs";
+import * as mod from "./main";
 /**
  * @description This class represents a video or audio player interface.
  * @class
@@ -16,6 +16,8 @@ export class PlayerInterface extends mod.CreateComponent("PlayerInterface", "Thi
      * @param {String} type - Represents the type of the player. Possible values are "audio", "video" or "gif" 
      */
     constructor(type) {
+        super()
         this.type = type;
     }
+    type: String;
 }
