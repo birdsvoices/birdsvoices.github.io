@@ -1,0 +1,14 @@
+// TypeScript configuration file
+{
+    "compilerOptions": {
+        "target": "ES3",
+        "removeComments": true,
+        "allowJs": true,
+        "checkJs": true,
+        "charset": "UTF-8",
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "compileOnSave": true
+}
