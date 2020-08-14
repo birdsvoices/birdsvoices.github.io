@@ -1,0 +1,24 @@
+{
+  "name": "birdsvoices-website",
+  "version": "1.0.0",
+  "description": "Birds Voices is an open source project about birds",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birdsvoices/birdsvoices.github.io.git"
+  },
+  "keywords": [
+    "birds",
+    "sound",
+    "birdsvoices"
+  ],
+  "author": "spoon.13",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/birdsvoices/birdsvoices.github.io/issues"
+  },
+  "homepage": "https://github.com/birdsvoices/birdsvoices.github.io#readme"
+}
