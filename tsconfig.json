@@ -6,6 +6,7 @@
         "allowJs": true,
         "checkJs": true,
         "charset": "UTF-8",
+        "experimentalDecorators": true,
     },
     "exclude": [
         "/node_modules",
