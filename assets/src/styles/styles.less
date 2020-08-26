@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@nav-color: #21f5ea;
+
 @media (inverted-colors: inverted) {
 
     img,
@@ -160,6 +162,31 @@
         background: transparent;
         box-shadow: none;
     }
+}
+
+.navbar {
+    background-color: @nav-color;
+}
+
+.navbar-brand {
+    color: #f8f8f8;
+    cursor: pointer;
+}
+
+.nav-link {
+    .navbar-brand();
+    margin-right: 1em !important;
+
+    &:hover {
+        background-color: #f8f8f8;
+        color: saturate(@nav-color, 15%);
+    }
+}
+.navbar-collapse {
+    justify-content: flex-end;
+}
+.navbar-toggler{
+    background-color: #ffffff!important;
 }
 
 #lead {
