@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/birdsvoices/birdsvoices.github.io#readme",
     "dependencies": {
+        "@types/jquery": "^3.5.1",
         "nodemon": "^2.0.4"
     },
     "devDependencies": {

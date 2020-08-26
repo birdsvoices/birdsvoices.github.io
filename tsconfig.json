@@ -7,10 +7,12 @@
         "checkJs": true,
         "charset": "UTF-8",
         "experimentalDecorators": true,
+        "jsx": "react",
     },
     "exclude": [
         "/node_modules",
-        "server.js"
+        "/assets/out/js",
+        "server.js",
     ],
     "compileOnSave": true
 }
