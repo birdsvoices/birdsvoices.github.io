@@ -1,3 +1,4 @@
 # ESLint ignore
 /node_modules/
-/assers/out/js/
+/static/js/
+/webpack.config.js

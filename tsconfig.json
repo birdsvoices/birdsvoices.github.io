@@ -13,6 +13,7 @@
         "/node_modules",
         "/assets/out/js",
         "server.js",
+        "webpack.config.js",
     ],
     "compileOnSave": true
 }
