@@ -195,13 +195,22 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    @media (max-width: 1920px) and (max-height: 1080px) and (min-resolution: 72dpi) {
+        background-image: url('/static/img/header_image_1920x1080.jpg');
+    }
+    @media (max-width: 1920px) and (max-height: 1080px) and (max-resolution: 72dpi) {
+        background-image: url('/static/img/header_image_1920x1080_48dpi.jpg');
+    }
+    @media (min-width: 1920px) and (min-height: 1080px) {
+        background-image: url('/static/img/header_image_4234x2614.jpg');
+    }
 }
 
-.overlay{
+.overlay {
     position: absolute;
     min-height: 100%;
     min-width: 100%;
     left: 0;
     top: 0;
     background: rgba(244, 244, 244, 0.79);
-   }
+}
