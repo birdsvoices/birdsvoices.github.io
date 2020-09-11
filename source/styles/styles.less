@@ -195,12 +195,16 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    height: 100vh;
+
     @media (max-width: 1920px) and (max-height: 1080px) and (min-resolution: 72dpi) {
         background-image: url('/static/img/header_image_1920x1080.jpg');
     }
+
     @media (max-width: 1920px) and (max-height: 1080px) and (max-resolution: 72dpi) {
         background-image: url('/static/img/header_image_1920x1080_48dpi.jpg');
     }
+
     @media (min-width: 1920px) and (min-height: 1080px) {
         background-image: url('/static/img/header_image_4234x2614.jpg');
     }
@@ -213,4 +217,30 @@
     left: 0;
     top: 0;
     background: rgba(244, 244, 244, 0.79);
+}
+
+.description {
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    padding: 2em;
+}
+
+.description h1 {
+    color: @nav-color;
+}
+
+.description p {
+    color: #666;
+    font-size: 20px;
+    width: 50%;
+    line-height: 1.5;
+}
+
+.description button {
+    border-width: 1px;
+    border-style: solid;
+    border-color: @nav-color;
+    background-color: @nav-color;
+    color: #fff;
 }
