@@ -1,0 +1,19 @@
+{
+    "name": "Birds Voices",
+    "short_name": "BirdsVoices",
+    "lang": "ru",
+    "dir": "ltr",
+    "description": "Birds Voices is an open source project about birds. It's a website where you can find recordings of different birds' songs.",
+    "icons": [],
+    "start_url": "/",
+    "categories": [
+        "entertainment",
+        "music"
+    ],
+    "scope": "https://birdsvoices.github.io/",
+    "display": "standalone",
+    "background_color": "#37a697",
+    "theme_color": "#8ffff0",
+    "orientation": "portrait",
+    "prefer_related_applications": false
+}
