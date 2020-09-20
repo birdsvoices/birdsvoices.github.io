@@ -61,39 +61,45 @@
     <meta http-equiv="Content-Language" content="ru">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
-script-src 'self' 'sha384-iuw+SkbnEXb6A6JBdgzzWBLglxDedYujIlz1CFE5L+r5NJiBQ0SS/TXfcd6BsiCW'
-'sha384-T6Etav7ShYqIZe+prlqxX/h04T1Iu9ynDpcgx0iBgcl5u+AVlStV2kv3mMxfnV1C'
-'sha384-Q5wFTPC/kyhbXJt5GLrIeka2uDOSTG7m1zpW91iMO1DJb7+vOwu2lgZC30d4uQmU'
-'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
-'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
-'sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' https://code.jquery.com/
-https://cdn.jsdelivr.net/ https://unpkg.com/ https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com/;
-style-src 'self' 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' 
-'sha512-C3C3BDBC0C73F4937BA795977BDC23C00F6AA94822428A3A76264C469075F96F42910E155BFA277D689D43C7D592E19063C6E4EE7B5129F9D0FBC25638B3358A' 
-'sha256-195760DC26809BB8A432C8F25280ABF70C8884D0BBF40EC16375D5A6AFE9EA4C' https://stackpath.bootstrapcdn.com/;
-object-src 'none'; frame-src: 'none'; manifest-src 'self' 'sha384-n6u/jjER0+DoSEijH6Ak9DD/yJS/nhETPraILr8shWsgkiEWNao6aV0G/OtECEGa';">
+    script-src 'self' 'unsafe-inline' 'sha384-iuw+SkbnEXb6A6JBdgzzWBLglxDedYujIlz1CFE5L+r5NJiBQ0SS/TXfcd6BsiCW'
+    'sha384-T6Etav7ShYqIZe+prlqxX/h04T1Iu9ynDpcgx0iBgcl5u+AVlStV2kv3mMxfnV1C'
+    'sha384-Q5wFTPC/kyhbXJt5GLrIeka2uDOSTG7m1zpW91iMO1DJb7+vOwu2lgZC30d4uQmU'
+    'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
+    'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
+    'sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' https://code.jquery.com/
+    https://cdn.jsdelivr.net/ https://unpkg.com/ https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com/;
+    style-src 'self' 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' https://stackpath.bootstrapcdn.com/;
+    object-src 'none'; frame-src 'none'; manifest-src 'self' 'sha384-n6u/jjER0+DoSEijH6Ak9DD/yJS/nhETPraILr8shWsgkiEWNao6aV0G/OtECEGa';">
     <meta http-equiv="Expires" content="Sun, 01 Aug 2038 04:00:00 GMT">
     <meta http-equiv="X-Content-Security-Policy"
         content="default-src 'self';
-script-src 'self' 'sha384-iuw+SkbnEXb6A6JBdgzzWBLglxDedYujIlz1CFE5L+r5NJiBQ0SS/TXfcd6BsiCW'
-'sha384-T6Etav7ShYqIZe+prlqxX/h04T1Iu9ynDpcgx0iBgcl5u+AVlStV2kv3mMxfnV1C'
-'sha384-Q5wFTPC/kyhbXJt5GLrIeka2uDOSTG7m1zpW91iMO1DJb7+vOwu2lgZC30d4uQmU'
-'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
-'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
-'sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' https://code.jquery.com/
-https://cdn.jsdelivr.net/ https://unpkg.com/ https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com/;
-style-src 'self' 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' 
-'sha512-C3C3BDBC0C73F4937BA795977BDC23C00F6AA94822428A3A76264C469075F96F42910E155BFA277D689D43C7D592E19063C6E4EE7B5129F9D0FBC25638B3358A' 
-'sha256-195760DC26809BB8A432C8F25280ABF70C8884D0BBF40EC16375D5A6AFE9EA4C' https://stackpath.bootstrapcdn.com/;
-object-src 'none'; frame-src: 'none'; manifest-src 'self' 'sha384-n6u/jjER0+DoSEijH6Ak9DD/yJS/nhETPraILr8shWsgkiEWNao6aV0G/OtECEGa';">
-    <meta http-equiv="X-Webkit-CSP" content="default-src 'self'; script-src https: 'self'; style-src 'self' https:">
+    script-src 'self' 'unsafe-inline' 'sha384-iuw+SkbnEXb6A6JBdgzzWBLglxDedYujIlz1CFE5L+r5NJiBQ0SS/TXfcd6BsiCW'
+    'sha384-T6Etav7ShYqIZe+prlqxX/h04T1Iu9ynDpcgx0iBgcl5u+AVlStV2kv3mMxfnV1C'
+    'sha384-Q5wFTPC/kyhbXJt5GLrIeka2uDOSTG7m1zpW91iMO1DJb7+vOwu2lgZC30d4uQmU'
+    'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
+    'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
+    'sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' https://code.jquery.com/
+    https://cdn.jsdelivr.net/ https://unpkg.com/ https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com/;
+    style-src 'self' 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' https://stackpath.bootstrapcdn.com/;
+    object-src 'none'; frame-src 'none'; manifest-src 'self' 'sha384-n6u/jjER0+DoSEijH6Ak9DD/yJS/nhETPraILr8shWsgkiEWNao6aV0G/OtECEGa';">
+    <meta http-equiv="X-Webkit-CSP"
+        content="default-src 'self';
+    script-src 'self' 'unsafe-inline' 'sha384-iuw+SkbnEXb6A6JBdgzzWBLglxDedYujIlz1CFE5L+r5NJiBQ0SS/TXfcd6BsiCW'
+    'sha384-T6Etav7ShYqIZe+prlqxX/h04T1Iu9ynDpcgx0iBgcl5u+AVlStV2kv3mMxfnV1C'
+    'sha384-Q5wFTPC/kyhbXJt5GLrIeka2uDOSTG7m1zpW91iMO1DJb7+vOwu2lgZC30d4uQmU'
+    'sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV'
+    'sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN'
+    'sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' https://code.jquery.com/
+    https://cdn.jsdelivr.net/ https://unpkg.com/ https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com/;
+    style-src 'self' 'sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' https://stackpath.bootstrapcdn.com/;
+    object-src 'none'; frame-src 'none'; manifest-src 'self' 'sha384-n6u/jjER0+DoSEijH6Ak9DD/yJS/nhETPraILr8shWsgkiEWNao6aV0G/OtECEGa';">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta http-equiv="cleartype" content="on">
     <meta http-equiv="imagetoolbar" content="no">
     <meta http-equiv="msthemecompatible" content="no">
     <link rel="stylesheet" href="static/css/styles.min.css" type="text/css" media="all"
-        integrity="sha384-aVUOspFKUoYwYDa8PHpQ46cEkHe/dfYrCn0/ehx3025GC0sSMTAsUgSgE2mJbbrx sha512-C3C3BDBC0C73F4937BA795977BDC23C00F6AA94822428A3A76264C469075F96F42910E155BFA277D689D43C7D592E19063C6E4EE7B5129F9D0FBC25638B3358A sha256-195760DC26809BB8A432C8F25280ABF70C8884D0BBF40EC16375D5A6AFE9EA4C"
+        integrity="sha384-aVUOspFKUoYwYDa8PHpQ46cEkHe/dfYrCn0/ehx3025GC0sSMTAsUgSgE2mJbbrx"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/src/ie/ie.css" type="text/css"
         media="(-ms-high-contrast: active), (-ms-high-contrast: none)">
